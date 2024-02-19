@@ -57,7 +57,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag_name: ${{ steps.version-bump.outputs.new_ver }}
-        release_name: 'genomeshader_${{ steps.version-bump.outputs.new_ver }}'
+        release_name: 'glama_${{ steps.version-bump.outputs.new_ver }}'
         body_path: "release_notes.txt"
         draft: false
         prerelease: false
@@ -66,21 +66,21 @@ jobs:
       if: failure()
       uses: rtCamp/action-slack-notify@v2.0.2
       env:
-        SLACK_MESSAGE: 'Failed to release version genomeshader_${{ steps.version-bump.outputs.new_ver }}'
+        SLACK_MESSAGE: 'Failed to release version glama_${{ steps.version-bump.outputs.new_ver }}'
         SLACK_COLOR: '#DF5A49'
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-        SLACK_ICON: https://github.com/broadinstitute/genomeshader/blob/main/.github/workflows/dnabad.png?raw=true
-        SLACK_USERNAME: genomeshader
+        SLACK_ICON: https://github.com/broadinstitute/glama/blob/main/.github/workflows/dnabad.png?raw=true
+        SLACK_USERNAME: glama
 
     - name: Slack Success Notification
       if: success()
       uses: rtCamp/action-slack-notify@v2.0.2
       env:
-        SLACK_MESSAGE: 'Successfully released version genomeshader_${{ steps.version-bump.outputs.new_ver }}'
+        SLACK_MESSAGE: 'Successfully released version glama_${{ steps.version-bump.outputs.new_ver }}'
         SLACK_COLOR: '#50D9C9'
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-        SLACK_ICON: https://github.com/broadinstitute/genomeshader/blob/main/.github/workflows/dnagood.png?raw=true
-        SLACK_USERNAME: genomeshader
+        SLACK_ICON: https://github.com/broadinstitute/glama/blob/main/.github/workflows/dnagood.png?raw=true
+        SLACK_USERNAME: glama
 
   linux:
     needs: [release]

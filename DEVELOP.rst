@@ -1,5 +1,5 @@
 Glama development guide
-""""""""""""""""""""""""""""""
+"""""""""""""""""""""""
 
 We welcome contributions to the codebase. This document provides guidance
 on setting up your development environment to test new features locally, then
@@ -8,21 +8,16 @@ contributing your changes to the main repository.
 
 About the codebase
 ------------------
-Glama is written in two languages: Rust (for "back-end" operations:
-multi-threaded data retrieval from Google Cloud Storage, alignment processing,
-columnar storage, etc.) and Python (for "front-end" operations: visualization,
-Jupyter notebook interaction, state maintainence, etc.).
+Glama is written in two languages: Rust and Python.
 
-The Rust components of the library make certain computationally expensive tasks
-orders of magnitude faster than equivalent Python code. While the Python parts
-of the library will call into this code freely, it is generally expected that
-the end user will never call the Rust functions directly.
+The Rust components of the codebase make certain computationally expensive tasks
+fast and memory safe. The Rust codebase is split among a number of crates. The
+`glama` crate is the core library, containing code meant to be reused in other
+applications. Other crates in the `crates/` directory are application binaries,
+which use the 'glama' library to provide new standalone applications.
 
-The Python components of the library are mostly intended to supply the visualization
-capabilities, dataset grouping, or other high-level manipulation features. We
-rely on the `Datashader <https://datashader.org/>`_ library for rapid visualization
-of large datasets, and the `Polars <https://github.com/pola-rs/polars>`_ library
-for manipulation of large genomic dataframes.
+The Python components of the library are mostly intended to supply access to the
+`glama` library.
 
 Developers need not know both languages to meaningfully contribute to Glama
 development. We welcome improvements and additional features to both the
@@ -73,15 +68,15 @@ Follow the steps below to set up your development environment:
 
    .. code-block:: bash
 
-       python3 -m venv genomeshader-env
+       python3 -m venv glama-env
 
-   This will create a new directory called `genomeshader-env` in your current directory. This directory will contain the Python executable files and a copy of the pip library which you can use to install other packages.
+   This will create a new directory called `glama-env` in your current directory. This directory will contain the Python executable files and a copy of the pip library which you can use to install other packages.
 
    - To activate the virtual environment, run the following command:
 
    .. code-block:: bash
 
-       source genomeshader-env/bin/activate
+       source glama-env/bin/activate
 
    Once the virtual environment is activated, the name of your virtual environment will appear on left side of the terminal prompt. This will let you know that the virtual environment is currently active. 
 
@@ -108,7 +103,7 @@ Follow the steps below to set up your development environment:
 
        maturin develop --release
 
-   This command will compile the Glama Rust code and install the resulting Python package into your active virtual environment. This means you can now import and use the Genomeshader library in your Python scripts and Jupyter notebooks.
+   This command will compile the Glama Rust code and install the resulting Python package into your active virtual environment. This means you can now import and use the Glama library in your Python scripts and Jupyter notebooks.
 
 6. Open the `playground.ipynb` notebook. 
    - Make sure that the notebook is set to use the virtual environment you created earlier. In Jupyter, you can do this by clicking on 'Kernel' > 'Change kernel' and selecting your virtual environment.
@@ -116,7 +111,7 @@ Follow the steps below to set up your development environment:
 
    .. code-block:: python
 
-       import genomeshader as gs
+       import glama
 
    If the library imports successfully, you are ready to start using Glama in your notebook.
 
@@ -127,10 +122,10 @@ Now, you are ready to start developing with Glama!
 
 
 Contributing to Glama
-----------------------------
+---------------------
 
 1. Fork the Glama repository
-   Go to the `Glama repository <https://github.com/broadinstitute/genomeshader>`_ and click on the "Fork" button. This will create a copy of the repository in your own GitHub account.
+   Go to the `Glama repository <https://github.com/broadinstitute/glama>`_ and click on the "Fork" button. This will create a copy of the repository in your own GitHub account.
 
 2. Clone the forked repository
    On your GitHub account, navigate to the forked repository and click on the "Clone or download" button. Copy the URL.
@@ -145,7 +140,7 @@ Contributing to Glama
 
    .. code-block:: bash
 
-       cd genomeshader
+       cd glama
 
    Now create a branch using the `git checkout` command:
 
