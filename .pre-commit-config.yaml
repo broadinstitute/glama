@@ -11,7 +11,6 @@ repos:
       - id: mixed-line-ending
       - id: trailing-whitespace
       - id: flake8
-      - id: black
   - repo: https://github.com/doublify/pre-commit-rust
     rev: master
     hooks:
