@@ -1,4 +1,9 @@
 repos:
+  - repo: https://github.com/psf/black
+    rev: stable
+    hooks:
+    - id: black
+      language_version: python3.7
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v3.3.0
     hooks:
@@ -10,18 +15,10 @@ repos:
       - id: end-of-file-fixer
       - id: mixed-line-ending
       - id: trailing-whitespace
+      - id: flake8
   - repo: https://github.com/doublify/pre-commit-rust
     rev: master
     hooks:
       - id: fmt
       - id: clippy
       - id: cargo-check
-  - repo: https://github.com/psf/black
-    rev: stable
-    hooks:
-    - id: black
-      language_version: python3.7
-  - repo: https://gitlab.com/pycqa/flake8
-    rev: 3.7.9
-    hooks:
-    - id: flake8
