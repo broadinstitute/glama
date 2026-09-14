@@ -55,7 +55,7 @@ Follow the steps below to set up your development environment:
 
 3. Install Rust and Python extensions for VSCode
    Open VSCode, go to the Extensions view by clicking on the Extensions icon in the Activity Bar on the side of the window. In the Extensions view, search for and install the following extensions:
-   
+
    - 'rust-analyzer': This extension provides advanced language support for Rust.
    - 'CodeLLDB': This extension is an optional but recommended tool for developing and debugging Rust code.
    - 'Jupyter': This extension provides Jupyter notebook support for VSCode.
@@ -78,7 +78,7 @@ Follow the steps below to set up your development environment:
 
        source glama-env/bin/activate
 
-   Once the virtual environment is activated, the name of your virtual environment will appear on left side of the terminal prompt. This will let you know that the virtual environment is currently active. 
+   Once the virtual environment is activated, the name of your virtual environment will appear on left side of the terminal prompt. This will let you know that the virtual environment is currently active.
 
    - In the virtual environment, you can use the command `pip` to install packages that will be isolated from the global Python installation. Install the required packages for Glama development by running the following command:
 
@@ -105,7 +105,7 @@ Follow the steps below to set up your development environment:
 
    This command will compile the Glama Rust code and install the resulting Python package into your active virtual environment. This means you can now import and use the Glama library in your Python scripts and Jupyter notebooks.
 
-6. Open the `playground.ipynb` notebook. 
+6. Open the `playground.ipynb` notebook.
    - Make sure that the notebook is set to use the virtual environment you created earlier. In Jupyter, you can do this by clicking on 'Kernel' > 'Change kernel' and selecting your virtual environment.
    - In the first cell of the notebook, import the Glama library by running the following code:
 
@@ -130,7 +130,7 @@ Contributing to Glama
 2. Clone the forked repository
    On your GitHub account, navigate to the forked repository and click on the "Clone or download" button. Copy the URL.
    Open a terminal and run the following git command:
-   
+
    .. code-block:: bash
 
        git clone "url you just copied"
