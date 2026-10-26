@@ -27,7 +27,7 @@ Installation
 
 ::
 
-   pip install glama 
+   pip install glama
 
 
 
